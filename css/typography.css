@@ -1,0 +1,69 @@
+/* ============================================================
+   TYPOGRAPHY — YUANRUI Creation System
+   標題 Noto Serif TC (思源宋體) · 內文 Noto Sans TC (思源黑體)
+   英文小標走襯線小型大寫，字距放寬，畫廊／學術感。
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  --font-serif: "Noto Serif TC", "Songti TC", serif;     /* display / headings */
+  --font-sans: "Noto Sans TC", "PingFang TC", system-ui, sans-serif; /* body / UI */
+  --font-label: "Noto Serif TC", serif;  /* latin eyebrow labels, small-caps feel */
+
+  /* ---- Weights ---- */
+  --fw-light: 300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+
+  /* ---- Type scale (px) ----
+     Desktop-first. Built on a calm 1.25 ratio with display jumps. */
+  --fs-display: 64px;   /* hero slogan */
+  --fs-h1: 44px;
+  --fs-h2: 32px;
+  --fs-h3: 24px;
+  --fs-h4: 20px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-caption: 14px;
+  --fs-label: 12px;     /* eyebrow / nav meta */
+
+  /* ---- Line heights ---- */
+  --lh-display: 1.18; /* @kind font */
+  --lh-heading: 1.30; /* @kind font */
+  --lh-body: 1.75; /* @kind font */
+  --lh-tight: 1.4; /* @kind font */
+
+  /* ---- Letter spacing ---- */
+  --ls-display: 0.04em;   /* CJK display breathing */
+  --ls-heading: 0.02em;
+  --ls-body: 0.01em;
+  --ls-eyebrow: 0.28em;   /* WIDE latin eyebrow caps */
+  --ls-nav: 0.14em;
+  --ls-button: 0.10em;
+}
+
+/* ---- Optional ready-made text roles (consumers may use directly) ---- */
+.t-display {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--text-strong);
+}
+.t-h1 { font-family: var(--font-serif); font-weight: var(--fw-medium); font-size: var(--fs-h1); line-height: var(--lh-heading); letter-spacing: var(--ls-heading); color: var(--text-strong); }
+.t-h2 { font-family: var(--font-serif); font-weight: var(--fw-medium); font-size: var(--fs-h2); line-height: var(--lh-heading); letter-spacing: var(--ls-heading); color: var(--text-strong); }
+.t-h3 { font-family: var(--font-serif); font-weight: var(--fw-regular); font-size: var(--fs-h3); line-height: var(--lh-heading); letter-spacing: var(--ls-heading); color: var(--text-strong); }
+.t-body-lg { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-body-lg); line-height: var(--lh-body); color: var(--text-body); }
+.t-body { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--text-body); }
+.t-caption { font-family: var(--font-sans); font-weight: var(--fw-regular); font-size: var(--fs-caption); line-height: var(--lh-tight); color: var(--text-muted); }
+.t-eyebrow {
+  font-family: var(--font-label);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-label);
+  line-height: 1.4;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}

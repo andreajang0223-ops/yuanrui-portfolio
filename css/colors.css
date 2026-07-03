@@ -1,0 +1,76 @@
+/* ============================================================
+   COLORS — YUANRUI Creation System
+   背景以紙感米白為主，墨黑為字，文化識別色低飽和。
+   Base values + semantic aliases.
+   ============================================================ */
+:root {
+  /* ---- Core neutrals (ink → paper) ---- */
+  --ink-900: #111111;   /* 墨黑  Ink Black — primary text, dark surfaces */
+  --ink-800: #1d1c1a;   /* 玄墨  near-black warm */
+  --ink-700: #36332f;   /* 深石墨 Graphite — strong text on light */
+  --ink-500: #6b665e;   /* 石墨  Stone graphite — secondary text */
+  --ink-400: #908a80;   /* 灰陶  muted label text */
+  --ink-300: #b9b3a8;   /* 淡灰  disabled / hairline-on-dark */
+
+  --paper-300: #d9d6cf; /* 石灰  Lime Stone — borders, dividers, fills */
+  --paper-200: #e9e5dd; /* 陶白  soft card surface */
+  --paper-100: #f2efe8; /* 宣白  raised surface */
+  --paper-050: #f7f5f1; /* 雲白  Cloud White — page background */
+  --paper-000: #fcfbf8; /* 紙白  pure paper highlight */
+
+  /* ---- Cultural identity hues (low-saturation) ---- */
+  --terra-600: #a8472d; /* 深陶土 pressed/active terracotta */
+  --terra-500: #c65a3a; /* 陶土  Terracotta — primary accent, life-core */
+  --terra-300: #e0a18e; /* 淡陶土 tint */
+  --terra-100: #f3ddd4; /* 陶霧  wash */
+
+  --jade-600: #4f8780;  /* 深青瓷 pressed celadon */
+  --jade-500: #6ca7a0;  /* 青瓷  Celadon — secondary accent */
+  --jade-300: #a7cac5;  /* 淡青瓷 tint */
+  --jade-100: #dceae8;  /* 青霧  wash */
+
+  --gold-600: #c0974f;  /* 深古金 pressed gold */
+  --gold-500: #d8b36a;  /* 金黃  Antique Gold — highlight, rare emphasis */
+  --gold-300: #e8d2a3;  /* 淡金  tint */
+  --gold-100: #f4e9d3;  /* 金霧  wash */
+
+  /* ---- Status (derived from cultural hues, kept muted) ---- */
+  --status-info: #6ca7a0;     /* 青瓷 */
+  --status-success: #6f8f6a;  /* 苔綠 moss */
+  --status-warning: #d8b36a;  /* 古金 */
+  --status-danger: #c65a3a;   /* 陶土 */
+
+  /* ============================================================
+     SEMANTIC ALIASES
+     ============================================================ */
+  /* Surfaces */
+  --surface-page: var(--paper-050);
+  --surface-raised: var(--paper-100);
+  --surface-card: var(--paper-000);
+  --surface-sunken: var(--paper-200);
+  --surface-ink: var(--ink-900);        /* dark manifesto band */
+  --surface-ink-soft: var(--ink-800);
+
+  /* Text */
+  --text-strong: var(--ink-900);        /* H1–H3, key copy */
+  --text-body: var(--ink-700);          /* body */
+  --text-muted: var(--ink-500);         /* secondary, captions */
+  --text-faint: var(--ink-400);         /* labels, meta */
+  --text-on-ink: var(--paper-050);      /* text on dark band */
+  --text-on-ink-muted: #a8a298;         /* secondary on dark */
+  --text-on-accent: var(--paper-000);
+
+  /* Lines & borders */
+  --border-hairline: rgba(17, 17, 17, 0.10);
+  --border-soft: var(--paper-300);
+  --border-strong: var(--ink-700);
+  --border-on-ink: rgba(247, 245, 241, 0.16);
+
+  /* Brand roles */
+  --accent: var(--terra-500);           /* primary cultural accent */
+  --accent-press: var(--terra-600);
+  --accent-2: var(--jade-500);          /* secondary */
+  --accent-2-press: var(--jade-600);
+  --accent-3: var(--gold-500);          /* rare highlight */
+  --focus-ring: rgba(108, 167, 160, 0.55);
+}

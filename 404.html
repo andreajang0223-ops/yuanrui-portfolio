@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>芫瑞造物誌</title>
+<script>
+  // GitHub Pages SPA fallback: /repo/works → /repo/#/works
+  (function () {
+    var base = location.pathname.split("/").slice(0, 2).join("/") + "/";
+    var rest = location.pathname.slice(base.length);
+    location.replace(base + (rest ? "#/" + rest : ""));
+  })();
+</script>
+</head>
+<body></body>
+</html>

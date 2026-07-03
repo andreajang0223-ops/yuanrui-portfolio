@@ -1,0 +1,31 @@
+/* ============================================================
+   EFFECTS — shadows, borders, motion, textures
+   品牌偏向扁平、低調。陰影極輕，像紙落在紙上。
+   ============================================================ */
+:root {
+  /* ---- Elevation (very soft, warm-toned) ---- */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(54, 51, 47, 0.05);
+  --shadow-sm: 0 2px 8px rgba(54, 51, 47, 0.06);
+  --shadow-md: 0 8px 24px rgba(54, 51, 47, 0.08);
+  --shadow-lg: 0 18px 48px rgba(54, 51, 47, 0.10);
+  --shadow-card-hover: 0 14px 36px rgba(54, 51, 47, 0.12);
+
+  /* ---- Borders ---- */
+  --bw-hair: 1px;
+  --bw-base: 1.5px;
+  --bw-strong: 2px;
+
+  /* ---- Motion ---- *
+     克制、緩慢、無彈跳。Calm ease, no bounce. */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast: 160ms; /* @kind other */
+  --dur-base: 280ms; /* @kind other */
+  --dur-slow: 520ms; /* @kind other */
+
+  /* ---- Focus ---- */
+  --focus-width: 2px; /* @kind spacing */
+  --focus-offset: 2px; /* @kind spacing */
+}
