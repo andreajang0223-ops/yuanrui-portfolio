@@ -82,17 +82,20 @@
 
   const workCard = (w, big = false) => {
     const soon = !!w.soon;
+    const coverInner = w.cover
+      ? `<img class="cover-img" src="${w.cover}" alt="${w.title}" loading="lazy">`
+      : S.workCover(w.accent, w.id, false);
     const inner = `
-      <div class="cover">${S.workCover(w.accent, w.id, false)}${soon ? '<div class="soon-overlay">實驗中 · Coming soon</div>' : ""}</div>
+      <div class="cover">${coverInner}${soon ? '<div class="soon-overlay">實驗中 · Coming soon</div>' : ""}</div>
       <div>
         <div class="w-cat" style="color:${YR.ACC[w.accent]}">${w.cat}</div>
         <div class="w-title">${w.title}</div>
         <div class="w-desc">${w.desc}</div>
         <div class="w-meta">${String(w.id).padStart(2, "0")} · ${w.year}</div>
       </div>`;
-    return soon
-      ? `<div class="work-card is-soon" data-reveal>${inner}</div>`
-      : `<a class="work-card" href="#/work/${w.id}" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
+    if (soon) return `<div class="work-card is-soon" data-reveal>${inner}</div>`;
+    if (w.link) return `<a class="work-card" href="${w.link}" target="_blank" rel="noopener" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
+    return `<a class="work-card" href="#/work/${w.id}" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
   };
 
   const contactCTA = () => `
@@ -102,7 +105,7 @@
       <p>無論是合作、委託，或只是想聊聊設計與文化，都歡迎與我聯繫。</p>
       <div class="cta-row">
         ${btn("寄信給我", "#/contact", "primary")}
-        ${btn("下載作品集", "assets/yuanrui-portfolio-plan.pdf", "secondary", false)}
+        ${btn("下載作品集", "assets/yuanrui-portfolio.pdf", "secondary", false)}
       </div>
     </section>`;
 
@@ -143,7 +146,7 @@
         ${sectionHeading("探索我的創造領域", "Explore My Creative Realms", "查看全部", "#/creation")}
         <div class="realms-grid">
           ${YR.REALMS.map((r) => `
-            <a class="realm-btn" style="--r-accent:${YR.ACC[r.tone]}" href="#/creation" aria-label="${r.zh}">
+            <a class="realm-btn" style="--r-accent:${YR.ACC[r.tone]}" href="${r.id === "music" ? YR.SUNO : "#/creation"}"${r.id === "music" ? ' target="_blank" rel="noopener"' : ""} aria-label="${r.zh}">
               <span class="r-icon">${S.icon(r.id, 38)}</span>
               <span style="text-align:center;">
                 <span class="r-zh" style="display:block;">${r.zh}</span>
@@ -208,7 +211,7 @@
         <div class="eyebrow">Selected Works · 作品集</div>
         <h1>作品集</h1>
         <p class="lede">跨越產品、藝術、聲音與文字的造物紀錄。每一件作品都是一次文化與形式的轉譯實驗。</p>
-        <div class="count">共 6 件 · 3 件實驗中 · SINCE 2023</div>
+        <div class="count">共 ${YR.WORKS.length} 件作品 · SINCE 2021</div>
       </section>
       <div class="filter-bar">
         <div class="container inner" role="tablist" aria-label="作品分類篩選">
@@ -244,7 +247,7 @@
         </div>
       </section>
       <section class="detail-hero container" data-reveal>
-        <div class="frame">${S.workCover(w.accent, w.id, true)}</div>
+        <div class="frame">${w.cover ? `<img class="cover-img" src="${w.cover}" alt="${w.title}">` : S.workCover(w.accent, w.id, true)}</div>
       </section>
       <section class="detail-body container">
         ${dd.sections.map((sec, i) => `
@@ -257,6 +260,7 @@
             ${sec.fig ? `<div class="fig">${S.processFig(w.accent)}</div>` : ""}
           </div>`).join("")}
       </section>
+      ${dd.gallery && dd.gallery.length ? `<section class="detail-gallery container" data-reveal>${dd.gallery.map((g) => `<figure class="g-item"><img src="${g}" alt="${w.title}" loading="lazy"></figure>`).join("")}</section>` : ""}
       <section class="detail-nav container">
         <div class="row">
           <a href="#/work/${prevW.id}"><div class="lbl">← 上一件</div><div class="ttl">${prevW.title}</div></a>
@@ -352,7 +356,7 @@
       <section class="cats-section container" style="margin-top: clamp(40px, 5vw, 56px);">
         <div class="cats-grid">
           ${YR.CATS.map((c) => `
-            <a class="cat-card" style="--c-accent:${YR.ACC[c.tone]}" href="${c.to}" data-reveal>
+            <a class="cat-card" style="--c-accent:${YR.ACC[c.tone]}" href="${c.to}"${c.to.startsWith("http") ? ' target="_blank" rel="noopener"' : ""} data-reveal>
               <div class="inner">
                 <div class="c-icon">${S.icon(c.icon, 36)}</div>
                 <div class="c-main">
@@ -524,15 +528,15 @@
 
       <section class="contact-cards container" data-reveal>
         <div class="grid">
-          <a class="info-card" href="mailto:studio@yuanrui.design">
+          <a class="info-card" href="mailto:zhangyanrui96@gmail.com">
             <div class="k">Email</div>
-            <div class="v">studio@yuanrui.design</div>
+            <div class="v">zhangyanrui96@gmail.com</div>
           </a>
-          <div class="info-card">
-            <div class="k">Social</div>
-            <div class="v">@yuanrui.creation</div>
-          </div>
-          <a class="info-card center btn-ghost-card" href="assets/yuanrui-portfolio-plan.pdf" download>
+          <a class="info-card" href="https://suno.com/@andrejangcreator223" target="_blank" rel="noopener">
+            <div class="k">Music · Suno</div>
+            <div class="v">@andrejangcreator223</div>
+          </a>
+          <a class="info-card center btn-ghost-card" href="assets/yuanrui-portfolio.pdf" download>
             <span class="btn btn-ghost">下載作品集 PDF<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12H20M20 12L14 6M20 12L14 18"/></svg></span>
           </a>
         </div>
@@ -722,7 +726,7 @@
       btnEl.textContent = "送出中…";
       const subject = encodeURIComponent(`[作品集網站] ${fields.type.el.value} — ${fields.name.el.value}`);
       const body = encodeURIComponent(`姓名：${fields.name.el.value}\nEmail：${fields.email.el.value}\n合作類型：${fields.type.el.value}\n\n${fields.msg.el.value}`);
-      window.location.href = `mailto:studio@yuanrui.design?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:zhangyanrui96@gmail.com?subject=${subject}&body=${body}`;
       setTimeout(() => {
         document.getElementById("formWrap").innerHTML = `
           <div class="form-success">

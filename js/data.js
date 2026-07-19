@@ -1,5 +1,5 @@
 /* ============================================================
-   芫瑞造物誌 — Content data
+   芫瑞造物誌 — Content data (real works)
    ============================================================ */
 
 const YR = {};
@@ -14,53 +14,84 @@ YR.NAV = [
   { id: "contact", hash: "#/contact", label: "聯繫我" },
 ];
 
+YR.SUNO = "https://suno.com/@andrejangcreator223";
+
 YR.ACC = { terra: "var(--terra-500)", jade: "var(--jade-500)", gold: "var(--gold-500)", ink: "var(--ink-900)", bronze: "#5E6E63", jadeDeep: "var(--jade-600)" };
 YR.WASH = { terra: "var(--terra-100)", jade: "var(--jade-100)", gold: "var(--gold-100)", ink: "var(--paper-200)", bronze: "#E3E7E3", jadeDeep: "var(--jade-100)" };
 
 YR.REALMS = [
   { id: "product", zh: "產品設計", en: "Product Design", tone: "terra" },
-  { id: "art", zh: "藝術創作", en: "Artwork", tone: "jade" },
+  { id: "art", zh: "平面設計", en: "Graphic Design", tone: "jade" },
   { id: "music", zh: "音樂創作", en: "Music", tone: "bronze" },
-  { id: "invention", zh: "發明研究", en: "Invention", tone: "gold" },
-  { id: "writing", zh: "書籍文字", en: "Writing", tone: "ink" },
+  { id: "invention", zh: "早期作品", en: "Early Works", tone: "gold" },
+  { id: "writing", zh: "作品輯", en: "Portfolio", tone: "ink" },
   { id: "culture", zh: "文化研究", en: "Culture", tone: "jadeDeep" },
 ];
 
 YR.WORKS = [
-  { id: 1, title: "共生 · 模組化家具", cat: "產品設計", group: "product", accent: "terra", year: "2025", desc: "可重組的生活方式，讓模組之間自由生長。" },
-  { id: 2, title: "山海之間", cat: "藝術創作", group: "art", accent: "jade", year: "2025", desc: "以幾何重構自然的呼吸與尺度。" },
-  { id: 3, title: "無界之聲", cat: "音樂創作", group: "music", accent: "bronze", year: "2024", desc: "讓聲音成為可被觸碰的空間。" },
-  { id: 4, title: "流光計畫", cat: "發明研究", group: "invention", accent: "gold", year: "2024", desc: "實驗中的光機構與互動裝置。", soon: true },
-  { id: 5, title: "設計思考筆記", cat: "書籍文字", group: "writing", accent: "ink", year: "2024", desc: "關於造物方法的長期書寫。", soon: true },
-  { id: 6, title: "漢字之形", cat: "文化研究", group: "culture", accent: "jadeDeep", year: "2023", desc: "從篆刻結構生成的字體實驗。", soon: true },
+  { id: 1, title: "掌中乾坤 · 客製化戲偶 App", cat: "介面設計 · 畢業製作", group: "product", accent: "terra", year: "2026", cover: "assets/works/puppet-app.jpg", desc: "結合布袋戲文化與現代介面的客製化戲偶 App。" },
+  { id: 2, title: "個人品牌識別系統", cat: "平面設計 · 品牌識別", group: "art", accent: "jade", year: "2025", cover: "assets/works/cis.jpg", desc: "為自己建立的標準字、標誌與視覺語言。" },
+  { id: 3, title: "色彩博物館", cat: "文化研究 · 色彩教育", group: "culture", accent: "jadeDeep", year: "2024", cover: "assets/works/color-museum.jpg", desc: "把色彩展開成跨越藝術、工藝與文化的知識場域。" },
+  { id: 4, title: "芫瑞作品輯", cat: "平面編排 · 作品集", group: "writing", accent: "ink", year: "2025", cover: "assets/works/grad-portfolio.jpg", desc: "把跨域創作收攏成一條可被閱讀的脈絡。" },
+  { id: 5, title: "產品設計作品集", cat: "產品設計 · 課程作品", group: "product", accent: "terra", year: "2023", cover: "assets/works/product-portfolio.jpg", desc: "大學階段的產品提案與造形練習。" },
+  { id: 6, title: "設計啟蒙 · 高中作品集", cat: "早期作品 · 工程設計", group: "invention", accent: "gold", year: "2021", cover: "assets/works/highschool.jpg", desc: "工程設計專題與數位創意，走上設計的起點。" },
+  { id: 7, title: "音樂創作 · Suno", cat: "音樂創作 · Suno", group: "music", accent: "bronze", year: "2024", link: "https://suno.com/@andrejangcreator223", desc: "在 Suno 上的 AI 音樂創作，點擊前往主頁聆聽。" },
 ];
 
 YR.DETAILS = {
   1: {
-    meta: [{ k: "Year", v: "2025" }, { k: "Category", v: "產品設計" }, { k: "Medium", v: "家具系統" }, { k: "Role", v: "設計 · 原型" }, { k: "Tools", v: "Fusion 360" }],
+    meta: [{ k: "Year", v: "2026" }, { k: "Category", v: "介面設計 · 畢業製作" }, { k: "Medium", v: "Flutter App" }, { k: "Role", v: "組長 · 前端 · AI 生圖" }, { k: "Tools", v: "Flutter · Firebase · Imagen" }],
+    gallery: ["assets/works/gallery/puppet-1.jpg", "assets/works/gallery/puppet-2.jpg", "assets/works/gallery/puppet-3.jpg", "assets/works/gallery/puppet-4.jpg", "assets/works/gallery/puppet-5.jpg", "assets/works/gallery/puppet-6.jpg"],
     sections: [
-      { h: "概述", p: "「共生」是一套可重組的模組化家具系統，回應當代居住空間不斷變動的需求。以最少的基本單元，讓使用者依生活情境，自由生長出書桌、層架與座具。" },
-      { h: "設計過程", fig: true, p: "從單一連接節點出發，研究模組之間的咬合邏輯與結構穩定性。歷經三輪原型與比例迭代，逐步收斂出兼具強度與輕盈感的接點。" },
-      { h: "成果", p: "一組六件式基本模組，可組合出超過二十種佈局。材質選用淺色木皮與啞光金屬，呼應紙感與墨色的品牌語言。" },
-      { h: "反思", p: "模組化的價值不在於變化的數量，而在於秩序中的自由 —— 這也是我對「造物」的理解：給出規則，讓使用者完成最後的創造。" },
+      { h: "概述", p: "「掌中乾坤」是一款結合台灣布袋戲文化與現代行動介面的客製化戲偶 App。使用者可以像捏一尊自己的戲偶一樣，客製妝容、髮型、布料與工藝技法，讓傳統掌中戲的角色美學，在手機上被重新理解與延續。" },
+      { h: "文化為基礎", fig: true, p: "專案第一階段以布袋戲的文化考據為根，整理生、旦、淨、末、丑各類角色的視覺特徵與服裝規制，並參考傳統神明彩與布幔的紋飾細節，確立「靛藍、霧金、朱紅」的主色系 —— 讓介面的文化語彙來自真實的工藝，而非表面的復古。" },
+      { h: "從研究到實作", p: "我擔任組長並負責前端與後端開發：以 Flutter 建構 App 的頁面骨架與狀態管理，串接 Firebase 處理資料與帳號，並整合 Google Imagen API，讓使用者的客製選擇能即時生成專屬的戲偶圖像。跨域協作中，我在設計稿確認前預留彈性的介面規格，讓技術與視覺能同步推進。" },
+      { h: "成果", p: "一套可實際操作的客製化戲偶 App，涵蓋角色選擇、妝容 / 髮型 / 布料 / 工藝技法客製與訂單追蹤流程，並以此參加新一代設計展。團隊成員：張芫瑞、游量鈞、陳宥緯；指導老師：張鴻兪。" },
+      { h: "反思", p: "這個專案讓我體會到，讓文化「活著」的方式，不是把它放進玻璃櫃，而是讓它能被今天的人重新使用、重新創造。掌中乾坤是一次把研究、程式與設計縫合在一起的練習。" },
     ],
   },
   2: {
-    meta: [{ k: "Year", v: "2025" }, { k: "Category", v: "藝術創作" }, { k: "Medium", v: "幾何拼貼" }, { k: "Role", v: "創作" }, { k: "Tools", v: "數位繪圖" }],
+    meta: [{ k: "Year", v: "2025" }, { k: "Category", v: "平面設計" }, { k: "Medium", v: "品牌識別 · CIS" }, { k: "Role", v: "設計" }, { k: "Tools", v: "Illustrator" }],
+    gallery: ["assets/works/gallery/cis-2.jpg", "assets/works/gallery/cis-3.jpg"],
     sections: [
-      { h: "概述", p: "「山海之間」以最精簡的幾何語彙，重構東方山水的呼吸與尺度。沒有具象的峰巒，只有圓、弧與線之間的張力。" },
-      { h: "設計過程", fig: true, p: "將傳統山水的留白與層次抽象為數值化的構圖規則，反覆測試形與形之間的距離，讓畫面在安靜中保有動勢。" },
-      { h: "成果", p: "一系列六張的幾何構圖，以玉青與墨色為主調，探索「不言之美」如何透過減法被感知。" },
-      { h: "反思", p: "真正的東方性不在符號，而在處理空間與留白的方式。我試著讓文化以結構的形式、而非裝飾的形式存在。" },
+      { h: "概述", p: "一套為自己建立的個人品牌識別系統，從標準字、標誌到色彩與應用，確立「芫瑞造物」的視覺語言。" },
+      { h: "標準字與標誌", fig: true, p: "以字體結構的比例與筆畫關係為出發，反覆推敲標準字的重心與留白，讓標誌在放大與縮小時都能保有辨識度與氣質。" },
+      { h: "應用", p: "將識別延伸到名片、印章與各類版面，測試同一套語言在不同載體上的一致性。" },
+      { h: "反思", p: "為自己做識別，是一種把「我是誰、我相信什麼」翻譯成形狀的過程。" },
     ],
   },
   3: {
-    meta: [{ k: "Year", v: "2024" }, { k: "Category", v: "音樂創作" }, { k: "Medium", v: "聲音 · 視覺" }, { k: "Role", v: "作曲 · 視覺" }, { k: "Tools", v: "Web Audio" }],
+    meta: [{ k: "Year", v: "2024" }, { k: "Category", v: "文化研究 · 色彩教育" }, { k: "Medium", v: "教材 · 展示設計" }, { k: "Role", v: "研究 · 企劃 · 設計" }, { k: "Tools", v: "Illustrator" }],
+    gallery: ["assets/works/gallery/color-2.jpg", "assets/works/gallery/color-3.jpg", "assets/works/gallery/color-4.jpg", "assets/works/gallery/color-5.jpg"],
     sections: [
-      { h: "概述", p: "「無界之聲」是一次聲音與空間的造物實驗，試圖讓聽覺成為可被觸碰、可被看見的場域。" },
-      { h: "設計過程", fig: true, p: "以同心圓與粒子作為聲音的視覺對應，將頻率與節奏映射為環的擴張與收縮，建立聲與形之間的對話。" },
-      { h: "成果", p: "一段可互動的生成式聲音裝置，聲音的密度與聽者的移動相互影響，沒有固定的開始與結束。" },
-      { h: "反思", p: "聲音是最抽象的造物，卻最接近情感。它提醒我，設計的終點不是物件，而是體驗。" },
+      { h: "概述", p: "「色彩博物館」是一個關於色彩的文化與教育專案，把色彩從單純的視覺現象，展開成跨越藝術、工藝與文化的知識場域。" },
+      { h: "蒐集與策展", fig: true, p: "從膠彩畫、藍染、西陣織、臉譜，到 Pantone 年度色、草間彌生與 Neil Harbisson 的色彩實踐，蒐集不同文化脈絡下人們如何理解與使用色彩，並轉化為可閱讀的教材與展示介面。" },
+      { h: "成果", p: "一套色彩主題的展示 / 教材內容與介面線稿，讓色彩知識能被系統地瀏覽與學習。" },
+      { h: "反思", p: "色彩不只是好不好看，而是一整個民族看世界的方式。" },
+    ],
+  },
+  4: {
+    meta: [{ k: "Year", v: "2025" }, { k: "Category", v: "平面編排 · 作品集" }, { k: "Medium", v: "平面 · 排版" }, { k: "Role", v: "設計 · 編排" }, { k: "Tools", v: "InDesign · Illustrator" }],
+    sections: [
+      { h: "概述", p: "一本整理自己跨域創作的作品輯，把產品、平面與研究的成果，收攏成一條可被閱讀的脈絡。" },
+      { h: "編排", fig: true, p: "以一致的網格與留白節奏，處理二十餘頁的圖文關係，讓不同性質的作品在同一本書裡仍能各自呼吸。" },
+      { h: "反思", p: "作品集本身也是一件作品 —— 它決定了別人用什麼順序、什麼節奏認識你。" },
+    ],
+  },
+  5: {
+    meta: [{ k: "Year", v: "2023" }, { k: "Category", v: "產品設計" }, { k: "Medium", v: "產品 · 簡報" }, { k: "Role", v: "設計" }, { k: "Tools", v: "Fusion 360 · Illustrator" }],
+    sections: [
+      { h: "概述", p: "大學階段的產品設計作品集，收錄課程中的產品提案與造形練習，是我建立設計方法的起點。" },
+      { h: "造形與提案", fig: true, p: "從使用情境出發，練習把問題收斂成造形，並以簡報的方式清楚地傳達概念。" },
+      { h: "反思", p: "這些早期作品讓我學會，好的設計不只是好看，而是能被說清楚、被理解。" },
+    ],
+  },
+  6: {
+    meta: [{ k: "Year", v: "2021" }, { k: "Category", v: "早期作品 · 工程設計" }, { k: "Medium", v: "綜合" }, { k: "Role", v: "創作" }, { k: "Tools", v: "手繪 · 3D 建模" }],
+    sections: [
+      { h: "概述", p: "高中時期的作品集，涵蓋工程設計專題、數位創意設計與早期的手作與繪畫，是我走上設計這條路的起點。" },
+      { h: "摸索", fig: true, p: "在還沒有太多方法與工具的時候，靠著好奇心去嘗試建模、製圖與各種媒材，累積對「動手把想法做出來」的熱情。" },
+      { h: "反思", p: "回頭看這些不成熟的作品，反而最能提醒我，創作最初的動力是什麼。" },
     ],
   },
 };
@@ -68,48 +99,48 @@ YR.DETAILS = {
 YR.FILTERS = [
   { id: "all", label: "全部" },
   { id: "product", label: "產品設計" },
-  { id: "art", label: "藝術創作" },
+  { id: "art", label: "平面設計" },
   { id: "music", label: "音樂創作" },
-  { id: "invention", label: "發明研究" },
-  { id: "writing", label: "書籍文字" },
+  { id: "invention", label: "早期作品" },
+  { id: "writing", label: "作品輯" },
   { id: "culture", label: "文化研究" },
 ];
 
 YR.METHODS = [
   { id: "product", zh: "設計為方法", en: "Design as Method", p: "以結構與邏輯解決真實問題，讓形式服務於使用與意義。" },
-  { id: "culture", zh: "文化為材料", en: "Culture as Material", p: "從甲骨、玉石、青銅中取意，轉譯為當代的設計語彙。" },
-  { id: "invention", zh: "跨域為路徑", en: "Across Disciplines", p: "在產品、藝術、聲音與文字之間流動，不為自己設下邊界。" },
+  { id: "culture", zh: "文化為材料", en: "Culture as Material", p: "從布袋戲、色彩與傳統工藝中取意，轉譯為當代的設計語彙。" },
+  { id: "invention", zh: "跨域為路徑", en: "Across Disciplines", p: "在產品、介面、平面與程式之間流動，不為自己設下邊界。" },
 ];
 
 YR.SKILLS = [
-  { label: "工業設計", v: 92, tone: "terra" }, { label: "產品開發", v: 84, tone: "terra" },
-  { label: "AI 應用", v: 80, tone: "bronze" }, { label: "3D 建模", v: 76, tone: "jade" },
-  { label: "前端開發", v: 72, tone: "bronze" }, { label: "排版設計", v: 86, tone: "gold" },
-  { label: "音樂創作", v: 64, tone: "jadeDeep" }, { label: "書寫", v: 70, tone: "ink" },
+  { label: "工業設計", v: 90, tone: "terra" }, { label: "介面 / App 設計", v: 84, tone: "terra" },
+  { label: "Flutter 前端", v: 78, tone: "bronze" }, { label: "3D 建模", v: 80, tone: "jade" },
+  { label: "平面設計", v: 86, tone: "gold" }, { label: "AI 生成應用", v: 82, tone: "bronze" },
+  { label: "色彩學", v: 74, tone: "jadeDeep" }, { label: "文化轉譯", v: 76, tone: "ink" },
 ];
 
 YR.TIMELINE = [
-  { year: "2021", title: "進入工業設計", desc: "開始系統性地學習設計、製造與材料。" },
-  { year: "2023", title: "跨域創作啟程", desc: "將創作延伸至藝術、聲音與文字，尋找媒介之間的共通語言。" },
-  { year: "2024", title: "Google Gemini 認證", desc: "投入 AI 與生成式工具的創作實驗，擴張造物的邊界。" },
-  { year: "2025", title: "新一代設計獎入圍", desc: "以「共生 · 模組化家具」獲得肯定。" },
+  { year: "2021", title: "設計啟蒙", desc: "高中以工程設計專題與數位創意設計，開啟對設計的興趣。" },
+  { year: "2022", title: "進入工業設計", desc: "進入大學工業設計系，系統性地學習設計、製造與材料。" },
+  { year: "2024", title: "AI 與跨域創作", desc: "投入 AI 與生成式工具的創作實驗，延伸至介面、色彩與文化。" },
+  { year: "2026", title: "掌中乾坤 · 畢業製作", desc: "以「客製化戲偶 App」整合文化研究、程式與設計，參加新一代設計展。" },
 ];
 
 YR.CATS = [
-  { id: "product", icon: "product", zh: "產品設計", en: "PRODUCT", tone: "terra", count: "01 件作品", desc: "以結構與使用情境，回應真實生活的需求。", to: "#/works/product" },
-  { id: "art", icon: "art", zh: "藝術創作", en: "ARTWORK", tone: "jade", count: "01 件作品", desc: "讓材質、色彩與形式承載情緒與觀念。", to: "#/works/art" },
-  { id: "music", icon: "music", zh: "音樂創作", en: "MUSIC", tone: "bronze", count: "01 件作品", desc: "以聲音建構空間與時間的造物。", to: "#/works/music" },
-  { id: "invention", icon: "invention", zh: "發明研究", en: "INVENTION", tone: "gold", count: "實驗中", desc: "探索機構、原理與尚未存在的可能。", to: "#/works/invention" },
-  { id: "writing", icon: "writing", zh: "書籍文字", en: "WRITING", tone: "ink", count: "實驗中", desc: "用文字整理思想，建立世界觀。", to: "#/works/writing" },
-  { id: "culture", icon: "culture", zh: "文化研究", en: "CULTURE", tone: "jadeDeep", count: "01 件作品", desc: "把傳統的線條與器物，轉譯為今日語言。", to: "#/works/culture" },
-  { id: "ai", icon: "ai", zh: "科技應用", en: "AI / TECH", tone: "bronze", count: "02 實驗", desc: "以 AI 與程式，擴張創作的邊界。", to: "#/lab" },
+  { id: "product", icon: "product", zh: "產品設計", en: "PRODUCT", tone: "terra", count: "02 件作品", desc: "以結構與使用情境，回應真實生活的需求。", to: "#/works/product" },
+  { id: "art", icon: "art", zh: "平面設計", en: "GRAPHIC", tone: "jade", count: "01 件作品", desc: "以標準字、標誌與版面，建立視覺語言。", to: "#/works/art" },
+  { id: "music", icon: "music", zh: "音樂創作", en: "MUSIC", tone: "bronze", count: "前往 Suno →", desc: "在 Suno 上的 AI 音樂創作，點擊聆聽。", to: "https://suno.com/@andrejangcreator223" },
+  { id: "invention", icon: "invention", zh: "早期作品", en: "EARLY", tone: "gold", count: "01 件作品", desc: "工程設計專題與最初的動手實驗。", to: "#/works/invention" },
+  { id: "writing", icon: "writing", zh: "作品輯", en: "PORTFOLIO", tone: "ink", count: "01 件作品", desc: "把跨域創作收攏成可被閱讀的脈絡。", to: "#/works/writing" },
+  { id: "culture", icon: "culture", zh: "文化研究", en: "CULTURE", tone: "jadeDeep", count: "01 件作品", desc: "把色彩與傳統工藝，轉譯為今日語言。", to: "#/works/culture" },
+  { id: "ai", icon: "ai", zh: "科技應用", en: "AI / TECH", tone: "bronze", count: "實驗室", desc: "以 AI 與程式，擴張創作的邊界。", to: "#/lab" },
   { id: "about", icon: "about", zh: "關於我", en: "ABOUT", tone: "ink", count: "造物者", desc: "造物者本人 —— 方法、歷程與信念。", to: "#/about" },
 ];
 
 YR.TRANSLATIONS = [
-  { zh: "甲骨線條", to: "形態語言", en: "Oracle Lines → Form", type: "oracle", p: "甲骨文的刻畫是最早的造形語言。我擷取其轉折、比例與力度，化為產品的輪廓與線條。" },
-  { zh: "玉石溫潤", to: "材質情感", en: "Jade → Emotion", type: "jade", p: "玉的半透與溫潤，是一種克制的奢侈。它教我如何讓材質本身說話，而非依賴裝飾。" },
-  { zh: "青銅紋樣", to: "結構秩序", en: "Bronze → Order", type: "bronze", p: "青銅器的紋樣是秩序的結晶。我從中學習重複、對稱與留白之間的張力。" },
+  { zh: "布袋戲偶", to: "介面角色", en: "Puppet → Interface", type: "oracle", p: "布袋戲偶的生旦淨末丑，是最成熟的角色造形語言。我擷取其妝容、髮式與服飾規制，化為 App 中可被客製的角色系統。" },
+  { zh: "神明彩布幔", to: "色彩紋樣", en: "Textile → Palette", type: "jade", p: "傳統神明彩與布幔的靛藍、霧金與朱紅，是廟埕文化的色彩記憶。我把它轉為介面的主色與紋樣。" },
+  { zh: "傳統色彩", to: "當代教材", en: "Colour → Education", type: "bronze", p: "從膠彩、藍染到西陣織，色彩承載著各自的文化秩序。我把它整理成可被瀏覽與學習的知識。" },
 ];
 
 YR.PAIRS = [
@@ -117,18 +148,18 @@ YR.PAIRS = [
   { beforeLabel: "玉璧 · 同心圓", afterLabel: "造物核心識別", before: "bi", after: "core" },
 ];
 
-YR.KEYWORDS = ["留白", "器物", "線條", "模組", "秩序", "溫潤", "轉譯", "未來", "結構", "克制", "東方", "當代"];
+YR.KEYWORDS = ["留白", "器物", "線條", "客製", "秩序", "溫潤", "轉譯", "未來", "結構", "克制", "東方", "當代"];
 
 YR.EXPERIMENTS = [
-  { title: "參數化造物核心", tools: ["p5.js", "Canvas"], status: "live", note: "探索生命核心的生成式變體，讓參數決定造物的密度與節奏。", tone: "terra" },
-  { title: "生成式紋樣", tools: ["Imagen", "Claude"], status: "live", note: "以 AI 生成低飽和的東方抽象紋樣，再人工篩選與重構。", tone: "bronze" },
-  { title: "模組家具參數化", tools: ["Fusion 360"], status: "done", note: "用參數驅動家具的比例與接點，一次調整、全件更新。", tone: "jade" },
-  { title: "文字排版引擎", tools: ["Flutter"], status: "done", note: "自動化中文長文排版，處理行寬、留白與標點的擠壓。", tone: "gold" },
-  { title: "聲音可視化", tools: ["Web Audio"], status: "live", note: "讓頻率與節奏成為可見的環與粒子。", tone: "jadeDeep" },
-  { title: "AI 草圖迭代", tools: ["Claude", "Imagen"], status: "done", note: "以對話加速概念草圖的收斂，把想法快速變成形。", tone: "ink" },
+  { title: "AI 戲偶生成", tools: ["Google Imagen", "Flutter"], status: "live", note: "以 Imagen API 讓使用者的客製選擇即時生成專屬的戲偶圖像。", tone: "terra" },
+  { title: "布袋戲文化紋樣", tools: ["Illustrator"], status: "done", note: "從神明彩與布幔紋飾，提取靛藍、霧金、朱紅的色彩與紋樣語言。", tone: "bronze" },
+  { title: "色彩博物館策展", tools: ["Illustrator"], status: "done", note: "蒐集跨文化的色彩實踐，轉化為可瀏覽的教材與介面。", tone: "jadeDeep" },
+  { title: "Firebase 後端整合", tools: ["Flutter", "Firebase"], status: "done", note: "為 App 建立帳號、資料與訂單流程的後端骨架。", tone: "jade" },
+  { title: "參數化造物核心", tools: ["p5.js", "Canvas"], status: "live", note: "探索生成式圖形，讓參數決定造物的密度與節奏。", tone: "gold" },
+  { title: "產品造形迭代", tools: ["Fusion 360"], status: "done", note: "用參數驅動造形比例與接點，一次調整、全件更新。", tone: "ink" },
 ];
 
-YR.TOOLBOX = ["Python", "Fusion 360", "Flutter", "Claude", "p5.js", "Figma", "Web Audio", "Imagen"];
+YR.TOOLBOX = ["Flutter", "Firebase", "Google Imagen", "Fusion 360", "Rhino", "Illustrator", "InDesign", "p5.js"];
 
 YR.TITLES = {
   home: "芫瑞造物誌 · YUANRUI ZHANG — 造物 · 創世 · 文化",
