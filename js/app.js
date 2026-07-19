@@ -7,6 +7,8 @@
 (() => {
   const app = document.getElementById("app");
   const S = YRSVG;
+  let readerCtl = null;
+  const bookPages = (b) => Array.from({ length: b.pages }, (_, i) => `${b.dir}/p${String(i + 1).padStart(3, "0")}.jpg`);
 
   /* ================= header / footer chrome ================= */
   document.getElementById("logoMark").innerHTML = S.logoMark();
@@ -94,6 +96,7 @@
         <div class="w-meta">${String(w.id).padStart(2, "0")} · ${w.year}</div>
       </div>`;
     if (soon) return `<div class="work-card is-soon" data-reveal>${inner}</div>`;
+    if (w.book) return `<a class="work-card" href="#/read/${w.id}" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
     if (w.link) return `<a class="work-card" href="${w.link}" target="_blank" rel="noopener" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
     return `<a class="work-card" href="#/work/${w.id}" data-reveal aria-label="${w.title} — ${w.cat}">${inner}</a>`;
   };
@@ -587,6 +590,31 @@
     </div>`;
   }
 
+  function pageRead(id) {
+    const w = YR.WORKS.find((x) => x.id === id && x.book);
+    if (!w) return pageWorks();
+    return `<div class="page">
+      <section class="detail-head read-head container" data-reveal>
+        <div class="breadcrumb"><a href="#/works">作品集</a><span>/</span><span>${w.cat}</span><span>/</span><span class="here">${w.title}</span></div>
+        <div class="w-cat" style="color:${YR.ACC[w.accent]}">${w.cat}</div>
+        <h1>${w.title}</h1>
+        ${w.desc ? `<p class="lede" style="max-width:640px;">${w.desc}</p>` : ""}
+        <div class="read-actions">
+          ${btn("← 回作品集", "#/works", "secondary")}
+          ${w.pdf ? btn("下載 PDF", w.pdf, "ghost", false) : ""}
+        </div>
+      </section>
+      <section class="reader-wrap container"><div id="flipMount"></div></section>
+    </div>`;
+  }
+
+  function initReader(id) {
+    const w = YR.WORKS.find((x) => x.id === id && x.book);
+    const mountEl = document.getElementById("flipMount");
+    if (!w || !mountEl) return;
+    readerCtl = YRFlip.mount(mountEl, bookPages(w.book), {});
+  }
+
   /* ================= lab canvas demo ================= */
   let labRAF = null;
   function stopLab() { if (labRAF) { cancelAnimationFrame(labRAF); labRAF = null; } }
@@ -747,17 +775,20 @@
     if (parts.length === 0) return { page: "home" };
     if (parts[0] === "works") return { page: "works", filter: parts[1] || "all" };
     if (parts[0] === "work") return { page: "detail", id: parseInt(parts[1], 10) || 1 };
+    if (parts[0] === "read") return { page: "read", id: parseInt(parts[1], 10) || 1 };
     if (["about", "creation", "culture", "lab", "contact"].includes(parts[0])) return { page: parts[0] };
     return { page: "home" };
   }
 
   function render() {
     stopLab();
+    if (readerCtl) { if (readerCtl.destroy) readerCtl.destroy(); readerCtl = null; }
     const r = parseHash();
     let html = "";
     switch (r.page) {
       case "works": html = pageWorks(r.filter); break;
       case "detail": html = pageDetail(r.id); break;
+      case "read": html = pageRead(r.id); break;
       case "about": html = pageAbout(); break;
       case "creation": html = pageCreation(); break;
       case "culture": html = pageCulture(); break;
@@ -768,12 +799,13 @@
     app.innerHTML = html;
     window.scrollTo({ top: 0, behavior: "auto" });
 
-    const navId = r.page === "detail" ? "works" : r.page;
+    const navId = (r.page === "detail" || r.page === "read") ? "works" : r.page;
     setActiveNav(navId);
-    const w = r.page === "detail" ? YR.WORKS.find((x) => x.id === r.id) : null;
+    const w = (r.page === "detail" || r.page === "read") ? YR.WORKS.find((x) => x.id === r.id) : null;
     document.title = w ? `${w.title} · 芫瑞造物誌` : (YR.TITLES[r.page] || YR.TITLES.home);
 
     armReveals();
+    if (r.page === "read") initReader(r.id);
     if (r.page === "lab") initLab();
     if (r.page === "about") initSkills();
     if (r.page === "works") initWorksFilter(r.filter);

@@ -814,3 +814,48 @@ select.field-input { cursor: pointer; appearance: none; -webkit-appearance: none
   border: 1px solid var(--border-hairline); box-shadow: var(--shadow-xs); background: var(--paper-100);
 }
 .detail-gallery .g-item img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+/* ---- flipbook reader ---- */
+.read-head { max-width: 1180px; margin: 0 auto; }
+.reader-wrap { max-width: 1180px; margin: 0 auto; padding: clamp(20px,3vw,36px) 0 clamp(48px,7vw,88px); }
+.flip-stage { display: flex; align-items: center; gap: clamp(8px,2vw,24px); }
+.flip-nav {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--border-hairline); background: var(--paper-100); color: var(--text-strong);
+  display: grid; place-items: center; cursor: pointer; box-shadow: var(--shadow-xs);
+  transition: transform var(--dur-base) var(--ease-out), background var(--dur-base), opacity var(--dur-base);
+}
+.flip-nav:hover { background: var(--paper-200); transform: translateY(-2px); }
+.flip-nav:disabled { opacity: 0.28; cursor: default; transform: none; }
+.flip-book {
+  position: relative; flex: 1 1 auto; min-height: 56vh;
+  display: flex; align-items: center; justify-content: center;
+  perspective: 2200px; cursor: pointer; user-select: none;
+}
+.flip-page { display: flex; align-items: center; justify-content: center; }
+.flip-page img {
+  display: block; max-width: 100%; max-height: 80vh; background: #fff;
+  border: 1px solid var(--border-hairline); box-shadow: var(--shadow-sm);
+}
+.flip-page.current { position: relative; }
+.flip-page.turning {
+  position: absolute; inset: 0; display: none; z-index: 5;
+  transform-style: preserve-3d; backface-visibility: hidden;
+}
+.flip-page.turning.from-right { transform-origin: left center; }
+.flip-page.turning.from-left  { transform-origin: right center; }
+.flip-page.turning.go { transition: transform 0.62s cubic-bezier(0.4,0,0.2,1), opacity 0.62s; }
+.flip-page.turning.from-right.go { transform: rotateY(-155deg); opacity: 0.15; }
+.flip-page.turning.from-left.go  { transform: rotateY(155deg);  opacity: 0.15; }
+.flip-spine {
+  position: absolute; top: 4%; bottom: 4%; left: 50%; width: 2px; transform: translateX(-50%);
+  background: linear-gradient(to right, transparent, rgba(54,51,47,0.10), transparent); pointer-events: none; z-index: 6;
+}
+.flip-foot { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: clamp(18px,3vw,28px); }
+.flip-range { width: min(460px, 76%); accent-color: var(--terra-500); cursor: pointer; }
+.flip-count { font-family: "IBM Plex Mono", monospace; font-size: 13px; letter-spacing: 0.08em; color: var(--text-muted); }
+.read-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+@media (max-width: 640px) {
+  .flip-nav { width: 38px; height: 38px; }
+  .flip-page img { max-height: 66vh; }
+}
